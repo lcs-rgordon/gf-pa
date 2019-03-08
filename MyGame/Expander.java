@@ -16,8 +16,12 @@ public class Expander extends Actor
      */
     Expander()
     {
+        // Set starting size for target
         currentRadius = 0;
+        
+        // Set initial color
         myColor = Color.WHITE;
+        
     }
     
     /**
@@ -26,13 +30,23 @@ public class Expander extends Actor
      */
     public void act() 
     {
+        // Get an object reference for the world
+        Reflexes world = (Reflexes) getWorld();
+        
         // Make the actor increase in size
-        expand();
+        if (world.isGameOn())
+        {
+            expand();
+        }
+        else
+        {
+            removeTarget();
+        }
         
         // Disappear after reaching 100 pixel radius
         if (currentRadius == 100)
         {
-            getWorld().removeObject(this);
+            removeTarget();
         }
     }    
     
@@ -56,5 +70,13 @@ public class Expander extends Actor
         
         // Set this costume as the image for this actor
         setImage(costume);
+    }
+    
+    /**
+     * Remove the target from the world
+     */
+    private void removeTarget()
+    {
+        getWorld().removeObject(this);
     }
 }

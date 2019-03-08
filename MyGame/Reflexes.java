@@ -53,6 +53,7 @@ public class Reflexes extends World
         else if (gameOn)
         {
             trackTime();
+            addTargets();
         }
     }
 
@@ -164,5 +165,33 @@ public class Reflexes extends World
                 showResults();
             }
         }
+    }
+    
+    /**
+     * Add targets for the user to tap
+     */
+    private void addTargets()
+    {
+        // Add a new target roughly every second
+        if (frames % 60 == 0)
+        {
+            // Pick a random x position within the width of this world
+            int x = Greenfoot.getRandomNumber(this.getWidth());
+            
+            // Pick a random y position within the height of this world
+            int y = Greenfoot.getRandomNumber(this.getHeight());
+
+            // Make a new target at the position selected
+            Expander target = new Expander();
+            addObject(target, x, y);
+        }
+    }
+    
+    /**
+     * Allow other objects to check whether the game is on
+     */
+    boolean isGameOn()
+    {
+        return gameOn;
     }
 }
