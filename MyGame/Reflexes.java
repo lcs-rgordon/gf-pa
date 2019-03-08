@@ -38,7 +38,7 @@ public class Reflexes extends World
 
         // Set centre point in the world
         centreX = getWidth() / 2;
-        
+
         // Load the achievement sound effect
         achievement = new GreenfootSound("achievement.mp3");
     }
@@ -57,7 +57,7 @@ public class Reflexes extends World
         else if (gameOn)
         {
             trackTime();
-            addTargets();
+            lookToAddTarget();
             lookForHits();
         }
     }
@@ -171,27 +171,35 @@ public class Reflexes extends World
             }
         }
     }
-    
+
     /**
-     * Add targets for the user to tap
+     * Regularly add a new target to the world
      */
-    private void addTargets()
+    private void lookToAddTarget()
     {
         // Add a new target roughly every second
         if (frames % 60 == 0)
         {
-            // Pick a random x position within the width of this world
-            int x = Greenfoot.getRandomNumber(this.getWidth());
-            
-            // Pick a random y position within the height of this world
-            int y = Greenfoot.getRandomNumber(this.getHeight());
-
-            // Make a new target at the position selected
-            Expander target = new Expander();
-            addObject(target, x, y);
+            addTarget();
         }
     }
-    
+
+    /**
+     * Add a new target to the world
+     */
+    private void addTarget()
+    {
+        // Pick a random x position within the width of this world
+        int x = Greenfoot.getRandomNumber(this.getWidth());
+
+        // Pick a random y position within the height of this world
+        int y = Greenfoot.getRandomNumber(this.getHeight());
+
+        // Make a new target at the position selected
+        Expander target = new Expander();
+        addObject(target, x, y);
+    }
+
     /**
      * Allow other objects to check whether the game is on
      */
@@ -199,7 +207,7 @@ public class Reflexes extends World
     {
         return gameOn;
     }
-    
+
     /**
      * Check to see whether actor has been tapped with mouse
      */
@@ -207,13 +215,16 @@ public class Reflexes extends World
     {
         // Get an object that will provide info about current mouse status
         MouseInfo mouse = Greenfoot.getMouseInfo();
-        
+
         // See if the mouse was clicked on an actor
         Expander hitTarget = (Expander) mouse.getActor();
         if (hitTarget != null)
         {
-            achievement.play();
+            // Remove the actor that was clicked
             removeObject(hitTarget);
+
+            // Play achievement sound effect
+            achievement.play();
         }
     }
 }
