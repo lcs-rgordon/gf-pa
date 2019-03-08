@@ -1,7 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * A circle that will expand in size until it's radius is 100 pixels, then disappear.
+ * A target that will expand in size until it's radius is 100 pixels, then disappear.
  * 
  * @author R. Gordon
  * @version Friday, March 8, 2019
@@ -54,7 +54,7 @@ public abstract class Expander extends Actor
     }    
 
     /**
-     * Make the circle expand in size
+     * Make the target expand in size
      */
     public void expand()
     {
@@ -62,7 +62,7 @@ public abstract class Expander extends Actor
 
         int diameter = currentRadius * 2;
 
-        // Create an empty (transparent) image at current radius
+        // Create an empty (transparent) image with dimensions based on diameter
         GreenfootImage costume = new GreenfootImage(diameter, diameter);
 
         // Set the colour
@@ -74,6 +74,7 @@ public abstract class Expander extends Actor
         // Set this costume as the image for this actor
         setImage(costume);
     }
+
 
     /**
      * Remove the target from the world
