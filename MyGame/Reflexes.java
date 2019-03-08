@@ -11,7 +11,7 @@ public class Reflexes extends World
     /**
      * Instance variables (fields a.k.a. properties)
      */
-    private boolean shouldBeShowingHint;
+    private boolean firstTimeRun;
     private boolean gameOn;
     private int centreX;
     private int timeLeft;
@@ -29,8 +29,8 @@ public class Reflexes extends World
         // Make background black
         drawBlackBackground();
 
-        // Game starts showing hint about how to play
-        shouldBeShowingHint = true;
+        // Tracks if game is run for first time
+        firstTimeRun = true;
 
         // Game is not on to start
         gameOn = false;
@@ -46,9 +46,9 @@ public class Reflexes extends World
     {
         lookForGameStart();
 
-        if (shouldBeShowingHint)
+        if (firstTimeRun)
         {
-            showHint();
+            showGamePlayHint();
         }
         else if (gameOn)
         {
@@ -59,7 +59,7 @@ public class Reflexes extends World
     /**
      * Show a hint about how to play.
      */
-    private void showHint()
+    private void showGamePlayHint()
     {
         showText("Welcome to Reflexes!", centreX, 75);
         showText("Click as many white circles as you can!", centreX, 175);
@@ -68,9 +68,9 @@ public class Reflexes extends World
     }
 
     /**
-     * Hide the hint
+     * Hide the hint about how to play
      */
-    private void hideHint()
+    private void hideGamePlayHint()
     {
         showText("", centreX, 75);
         showText("", centreX, 175);
@@ -126,8 +126,8 @@ public class Reflexes extends World
      */
     private void startGame()
     {
-        shouldBeShowingHint = false;
-        hideHint();
+        firstTimeRun = false;
+        hideGamePlayHint();
         hideResults();
         gameOn = true;
         timeLeft = 10;
