@@ -138,6 +138,16 @@ public class Reflexes extends World
         timeLeft = 10;
         frames = 0;
         showTimeLeft();
+        removeTargets();
+    }
+    
+    /**
+     * Removes all existing targets from the world.
+     */
+    private void removeTargets()
+    {
+        java.util.List targets = getObjects(Expander.class);
+        removeObjects(targets);
     }
 
     /**
