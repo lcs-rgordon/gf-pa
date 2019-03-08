@@ -1,23 +1,23 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * These are the targets you want to hit!
+ * These are the targets you want to avoid!
  * 
  * @author R. Gordon
  * @version Friday, March 8, 2019
  */
-public class Beneficial extends Expander
+public class Harmful extends Expander
 {
     /**
      * Constructor
      */
-    Beneficial()
+    Harmful()
     {
-        super(Color.WHITE);
+        super(Color.RED);
     }
 
     /**
-     * Act - do whatever the Beneficial wants to do. This method is called whenever
+     * Act - do whatever the Harmful wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act() 
@@ -49,7 +49,7 @@ public class Beneficial extends Expander
         {
             // Achievement made!
             Reflexes world = (Reflexes) getWorld();
-            world.playAchievementSound();
+            world.playMistakeSound();
 
             // Remove this expander
             removeTarget();

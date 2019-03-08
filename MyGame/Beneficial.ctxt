@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Beneficial
-comment0.text=\n\ Write\ a\ description\ of\ class\ Beneficial\ here.\n\ \n\ @author\ R.\ Gordon\n\ @version\ Friday,\ March\ 8,\ 2019\n
+comment0.text=\n\ These\ are\ the\ targets\ you\ want\ to\ hit\!\n\ \n\ @author\ R.\ Gordon\n\ @version\ Friday,\ March\ 8,\ 2019\n
 comment1.params=
 comment1.target=Beneficial()
 comment1.text=\n\ Constructor\n

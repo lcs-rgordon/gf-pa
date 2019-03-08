@@ -17,6 +17,7 @@ public class Reflexes extends World
     private int timeLeft;
     private int frames;
     private GreenfootSound achievement;
+    private GreenfootSound mistake;
 
     /**
      * Constructor for objects of class Reflexes.
@@ -41,6 +42,9 @@ public class Reflexes extends World
 
         // Load the achievement sound effect
         achievement = new GreenfootSound("short_coin.wav");
+
+        // Load the mistake sound effect
+        mistake = new GreenfootSound("oops.mp3");
     }
 
     /**
@@ -140,7 +144,7 @@ public class Reflexes extends World
         showTimeLeft();
         removeTargets();
     }
-    
+
     /**
      * Removes all existing targets from the world.
      */
@@ -204,9 +208,19 @@ public class Reflexes extends World
         // Pick a random y position within the height of this world
         int y = Greenfoot.getRandomNumber(this.getHeight());
 
-        // Make a new target at the position selected
-        Beneficial target = new Beneficial();
-        addObject(target, x, y);
+        // Select the type of target (80% of time will be beneficial)
+        // ... then add to the world
+        if (Greenfoot.getRandomNumber(10) + 1 <= 8)
+        {
+            Beneficial target = new Beneficial();
+            addObject(target, x, y);
+        }
+        else
+        {
+            Harmful target = new Harmful();
+            addObject(target, x, y);
+        }
+
     }
 
     /**
@@ -216,16 +230,28 @@ public class Reflexes extends World
     {
         return gameOn;
     }
-    
+
     /**
-     * Play the achievement sound effect (when target is hit)
+     * Play the achievement sound effect (when beneficial target is hit)
      */
     public void playAchievementSound()
     {
         // Will stop playing sound effect if it's currently playing
         achievement.stop();
-        
+
         // Will start playing sound effect again
         achievement.play();
+    }
+
+    /**
+     * Play the mistake sound effect (when harmful target is hit)
+     */
+    public void playMistakeSound()
+    {
+        // Will stop playing sound effect if it's currently playing
+        mistake.stop();
+
+        // Will start playing sound effect again
+        mistake.play();
     }
 }

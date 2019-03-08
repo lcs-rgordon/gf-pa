@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=Harmful
+comment0.text=\n\ These\ are\ the\ targets\ you\ want\ to\ avoid\!\n\ \n\ @author\ R.\ Gordon\n\ @version\ Friday,\ March\ 8,\ 2019\n
+comment1.params=
+comment1.target=Harmful()
+comment1.text=\n\ Constructor\n
+comment2.params=
+comment2.target=void\ act()
+comment2.text=\n\ Act\ -\ do\ whatever\ the\ Harmful\ wants\ to\ do.\ This\ method\ is\ called\ whenever\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\n
+comment3.params=
+comment3.target=boolean\ lookForHit()
+comment3.text=\n\ Check\ to\ see\ whether\ target\ has\ been\ touched\ with\ mouse\n\ \n\ @return\ \ Whether\ the\ target\ was\ hit\ or\ not\n
+numComments=4
