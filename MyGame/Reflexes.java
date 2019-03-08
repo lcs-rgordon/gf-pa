@@ -100,7 +100,7 @@ public class Reflexes extends World
      */
     private void lookForGameStart()
     {
-        if (Greenfoot.isKeyDown("space"))
+        if (Greenfoot.isKeyDown("space") && !gameOn)
         {
             startGame();
         }
