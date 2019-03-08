@@ -16,6 +16,7 @@ public class Reflexes extends World
     private int centreX;
     private int timeLeft;
     private int frames;
+    private GreenfootSound achievement;
 
     /**
      * Constructor for objects of class Reflexes.
@@ -37,6 +38,9 @@ public class Reflexes extends World
 
         // Set centre point in the world
         centreX = getWidth() / 2;
+        
+        // Load the achievement sound effect
+        achievement = new GreenfootSound("achievement.mp3");
     }
 
     /**
@@ -54,6 +58,7 @@ public class Reflexes extends World
         {
             trackTime();
             addTargets();
+            lookForHits();
         }
     }
 
@@ -193,5 +198,22 @@ public class Reflexes extends World
     boolean isGameOn()
     {
         return gameOn;
+    }
+    
+    /**
+     * Check to see whether actor has been tapped with mouse
+     */
+    private void lookForHits()
+    {
+        // Get an object that will provide info about current mouse status
+        MouseInfo mouse = Greenfoot.getMouseInfo();
+        
+        // See if the mouse was clicked on an actor
+        Expander hitTarget = (Expander) mouse.getActor();
+        if (hitTarget != null)
+        {
+            achievement.play();
+            removeObject(hitTarget);
+        }
     }
 }

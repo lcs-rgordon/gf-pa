@@ -78,5 +78,5 @@ public class Expander extends Actor
     private void removeTarget()
     {
         getWorld().removeObject(this);
-    }
+    }    
 }
