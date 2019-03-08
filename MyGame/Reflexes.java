@@ -195,7 +195,7 @@ public class Reflexes extends World
         int y = Greenfoot.getRandomNumber(this.getHeight());
 
         // Make a new target at the position selected
-        Expander target = new Expander();
+        Beneficial target = new Beneficial();
         addObject(target, x, y);
     }
 

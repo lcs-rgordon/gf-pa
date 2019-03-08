@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author R. Gordon
  * @version Friday, March 8, 2019
  */
-public class Expander extends Actor
+public abstract class Expander extends Actor
 {
     private int currentRadius;
     private Color myColor;
@@ -14,14 +14,16 @@ public class Expander extends Actor
     /**
      * Constructor
      */
-    Expander()
+    Expander(Color color)
     {
         // Set starting size for target
         currentRadius = 0;
 
         // Set initial color
-        myColor = Color.WHITE;
+        myColor = color;
 
+        // Expand to one pixel in size
+        expand();
     }
 
     /**
@@ -37,7 +39,6 @@ public class Expander extends Actor
         if (world.isGameOn())
         {
             expand();
-            lookForHit();
         }
         else
         {
@@ -49,12 +50,13 @@ public class Expander extends Actor
         {
             removeTarget();
         }
+
     }    
 
     /**
      * Make the circle expand in size
      */
-    private void expand()
+    public void expand()
     {
         currentRadius += 1;
 
@@ -76,26 +78,9 @@ public class Expander extends Actor
     /**
      * Remove the target from the world
      */
-    private void removeTarget()
+    public void removeTarget()
     {
         getWorld().removeObject(this);
-    }
-
-    /**
-     * Check to see whether actor has been touched with mouse
-     */
-    private void lookForHit()
-    {
-        if (Greenfoot.mouseMoved(this))
-        {
-            // Achievement made!
-            Reflexes world = (Reflexes) getWorld();
-            world.playAchievementSound();
-
-            // Remove this actor
-            removeTarget();
-        }
-
     }
 
 }
