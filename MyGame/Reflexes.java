@@ -12,7 +12,10 @@ public class Reflexes extends World
      * Instance variables (fields a.k.a. properties)
      */
     private boolean shouldBeShowingHint;
+    private boolean gameOn;
     private int centreX;
+    private int timeLeft;
+    private int frames;
 
     /**
      * Constructor for objects of class Reflexes.
@@ -29,6 +32,9 @@ public class Reflexes extends World
         // Game starts showing hint about how to play
         shouldBeShowingHint = true;
         
+        // Game is not on to start
+        gameOn = false;
+        
         // Set centre point in the world
         centreX = this.getWidth() / 2;
     }
@@ -42,6 +48,10 @@ public class Reflexes extends World
         {
             showHint();
             lookForGameStart();
+        }
+        else if (gameOn)
+        {
+            trackTime();
         }
     }
 
@@ -76,6 +86,7 @@ public class Reflexes extends World
         {
             this.shouldBeShowingHint = false;
             this.hideHint();
+            this.startGame();
         }
     }
     
@@ -94,5 +105,46 @@ public class Reflexes extends World
         // Set the new background
         this.setBackground(background);
     }
+    
+    /**
+     * Start a new game
+     */
+    private void startGame()
+    {
+        gameOn = true;
+        timeLeft = 10;
+        frames = 0;
+        showTimeLeft();
+    }
+    
+    /**
+     * Displays the time left on the screen.
+     */
+    private void showTimeLeft()
+    {
+        this.showText("Time left: " + timeLeft, 100, 50);
+    }
+    
 
+    /**
+     * Track frames and reduce time left in the game (each game is 10 seconds long)
+     */
+    private void trackTime()
+    {
+        // Track frames (fps is about 60)
+        frames += 1;
+        
+        // Every second (roughly) reduce the time left
+        if (frames % 60 == 0)
+        {
+            timeLeft -= 1;
+            showTimeLeft();
+            
+            // Look for end of game
+            if (timeLeft == 0)
+            {
+                gameOn = false;
+            }
+        }
+    }
 }
