@@ -25,11 +25,13 @@ public class Harmful extends Expander
         // Get an object reference for the world
         Reflexes world = (Reflexes) getWorld();
 
-        // Look to see if target hit
+        // When the game is on...
         if (world.isGameOn())
         {
+            // ... look to see if hit
             boolean hit = lookForHit();
 
+            // When the target was not hit, continue expanding in size
             if (!hit)
             {
                 // Let the superclass do the expanding work
@@ -54,10 +56,12 @@ public class Harmful extends Expander
             // Remove this expander
             removeTarget();
 
+            // Target was hit
             return true;
         }
         else
         {
+            // Target not hit
             return false;
         }
 
