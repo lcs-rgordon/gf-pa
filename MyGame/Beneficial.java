@@ -7,7 +7,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @version Friday, March 8, 2019
  */
 public class Beneficial extends Expander
-{
+{    
     /**
      * Constructor
      */
@@ -52,6 +52,9 @@ public class Beneficial extends Expander
             // Achievement made!
             Reflexes world = (Reflexes) getWorld();
             world.playAchievementSound();
+            
+            // Increase score
+            world.changeScoreBy(100 - getRadius());
 
             // Remove this expander
             removeTarget();

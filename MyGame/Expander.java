@@ -82,6 +82,14 @@ public abstract class Expander extends Actor
     {
         getWorld().removeObject(this);
     }
+    
+    /**
+     * Get current radius of the target
+     */
+    public int getRadius()
+    {
+        return currentRadius;
+    }
 
 }
 

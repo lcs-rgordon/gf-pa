@@ -16,6 +16,7 @@ public class Reflexes extends World
     private int centreX;
     private int timeLeft;
     private int frames;
+    private int score;
     private GreenfootSound achievement;
     private GreenfootSound mistake;
 
@@ -143,6 +144,8 @@ public class Reflexes extends World
         frames = 0;
         showTimeLeft();
         removeTargets();
+        score = 0;
+        showScore();
     }
 
     /**
@@ -162,6 +165,14 @@ public class Reflexes extends World
         showText("Time left: " + timeLeft, 100, 50);
     }
 
+    /**
+     * Displays the score on the screen
+     */
+    private void showScore()
+    {
+        showText("Score: " + score, getWidth() - 100, 50);
+    }
+    
     /**
      * Track frames and reduce time left in the game (each game is 10 seconds long)
      */
@@ -253,5 +264,16 @@ public class Reflexes extends World
 
         // Will start playing sound effect again
         mistake.play();
+    }
+    
+    /**
+     * Change the score when a target is hit
+     * 
+     * @param   thisMuch    How much to change the score by
+     */
+    public void changeScoreBy(int thisMuch)
+    {
+        score += thisMuch;
+        showScore();
     }
 }

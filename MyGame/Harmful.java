@@ -52,6 +52,9 @@ public class Harmful extends Expander
             // Achievement made!
             Reflexes world = (Reflexes) getWorld();
             world.playMistakeSound();
+            
+            // Decrease score
+            world.changeScoreBy((100 - getRadius()) * (-2));
 
             // Remove this expander
             removeTarget();
