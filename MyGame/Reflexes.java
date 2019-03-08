@@ -12,6 +12,7 @@ public class Reflexes extends World
      * Instance variables (fields a.k.a. properties)
      */
     private boolean shouldBeShowingHint;
+    private int centreX;
 
     /**
      * Constructor for objects of class Reflexes.
@@ -19,6 +20,7 @@ public class Reflexes extends World
      */
     public Reflexes()
     {    
+        // Create a world 500 pixels wide by 400 pixels high
         super(500, 400, 1); 
 
         // Make background black
@@ -26,6 +28,9 @@ public class Reflexes extends World
 
         // Game starts showing hint about how to play
         shouldBeShowingHint = true;
+        
+        // Set centre point in the world
+        centreX = this.getWidth() / 2;
     }
 
     /**
@@ -45,10 +50,10 @@ public class Reflexes extends World
      */
     private void showHint()
     {
-        this.showText("Welcome to Reflexes!", 250, 75);
-        this.showText("Click as many white circles as you can!", 250, 175);
-        this.showText("Don't click the red circles.", 250, 225);
-        this.showText("Press SPACE BAR to begin.", 250, 325);
+        this.showText("Welcome to Reflexes!", centreX, 75);
+        this.showText("Click as many white circles as you can!", centreX, 175);
+        this.showText("Don't click the red circles.", centreX, 225);
+        this.showText("Press SPACE BAR to begin.", centreX, 325);
     }
     
     /**
@@ -56,10 +61,10 @@ public class Reflexes extends World
      */
     private void hideHint()
     {
-        this.showText("", 250, 75);
-        this.showText("", 250, 175);
-        this.showText("", 250, 225);
-        this.showText("", 250, 325);
+        this.showText("", centreX, 75);
+        this.showText("", centreX, 175);
+        this.showText("", centreX, 225);
+        this.showText("", centreX, 325);
     }
 
     /**
