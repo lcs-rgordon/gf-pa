@@ -220,10 +220,13 @@ public class Reflexes extends World
         Expander hitTarget = (Expander) mouse.getActor();
         if (hitTarget != null)
         {
+            // If current sound effect playing, stop it
+            achievement.stop();
+            
             // Remove the actor that was clicked
             removeObject(hitTarget);
 
-            // Play achievement sound effect
+            // Play achievement sound effect again
             achievement.play();
         }
     }
