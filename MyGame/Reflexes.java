@@ -40,7 +40,7 @@ public class Reflexes extends World
         centreX = getWidth() / 2;
 
         // Load the achievement sound effect
-        achievement = new GreenfootSound("coin.wav");
+        achievement = new GreenfootSound("short_coin.wav");
     }
 
     /**
