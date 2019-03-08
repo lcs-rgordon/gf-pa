@@ -31,10 +31,10 @@ public class Reflexes extends World
 
         // Game starts showing hint about how to play
         shouldBeShowingHint = true;
-        
+
         // Game is not on to start
         gameOn = false;
-        
+
         // Set centre point in the world
         centreX = getWidth() / 2;
     }
@@ -44,10 +44,11 @@ public class Reflexes extends World
      */
     public void act()
     {
+        lookForGameStart();
+
         if (shouldBeShowingHint)
         {
             showHint();
-            lookForGameStart();
         }
         else if (gameOn)
         {
@@ -65,7 +66,7 @@ public class Reflexes extends World
         showText("Don't click the red circles.", centreX, 225);
         showText("Press SPACE BAR to begin.", centreX, 325);
     }
-    
+
     /**
      * Hide the hint
      */
@@ -78,18 +79,32 @@ public class Reflexes extends World
     }
 
     /**
+     * Show results of a game.
+     */
+    private void showResults()
+    {
+        showText("Press SPACE BAR to play again.", centreX, 325);
+    }
+
+    /**
+     * Hide results of a game.
+     */
+    private void hideResults()
+    {
+        showText("", centreX, 325);
+    }
+
+    /**
      * Start the game if the user wants to.
      */
     private void lookForGameStart()
     {
         if (Greenfoot.isKeyDown("space"))
         {
-            shouldBeShowingHint = false;
-            hideHint();
             startGame();
         }
     }
-    
+
     /**
      * Set background to pure black.
      */
@@ -105,18 +120,21 @@ public class Reflexes extends World
         // Set the new background
         setBackground(background);
     }
-    
+
     /**
      * Start a new game
      */
     private void startGame()
     {
+        shouldBeShowingHint = false;
+        hideHint();
+        hideResults();
         gameOn = true;
         timeLeft = 10;
         frames = 0;
         showTimeLeft();
     }
-    
+
     /**
      * Displays the time left on the screen.
      */
@@ -124,7 +142,6 @@ public class Reflexes extends World
     {
         showText("Time left: " + timeLeft, 100, 50);
     }
-    
 
     /**
      * Track frames and reduce time left in the game (each game is 10 seconds long)
@@ -133,17 +150,18 @@ public class Reflexes extends World
     {
         // Track frames (fps is about 60)
         frames += 1;
-        
+
         // Every second (roughly) reduce the time left
         if (frames % 60 == 0)
         {
             timeLeft -= 1;
             showTimeLeft();
-            
+
             // Look for end of game
             if (timeLeft == 0)
             {
                 gameOn = false;
+                showResults();
             }
         }
     }
