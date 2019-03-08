@@ -263,7 +263,7 @@ public class Reflexes extends World
     /**
      * Allow other objects to check whether the game is on
      */
-    boolean isGameOn()
+    public boolean isGameOn()
     {
         return gameOn;
     }

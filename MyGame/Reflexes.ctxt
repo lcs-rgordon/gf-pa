@@ -1,9 +1,9 @@
 #BlueJ class context
 comment0.target=Reflexes
-comment0.text=\n\ Write\ a\ description\ of\ class\ Reflexes\ here.\n\ \n\ @author\ R.\ Gordon\n\ @version\ March\ 6,\ 2019\n
+comment0.text=\n\ World\ for\ the\ Reflexes\ game\ (manages\ score,\ timekeeping,\ target\ spawning,\ etc)\n\ \n\ @author\ R.\ Gordon\n\ @version\ March\ 6,\ 2019\n
 comment1.params=
 comment1.target=Reflexes()
-comment1.text=\n\ Constructor\ for\ objects\ of\ class\ Reflexes.\n\ \n
+comment1.text=\n\ Constructor\ for\ objects\ of\ class\ Reflexes.\n
 comment10.params=
 comment10.target=void\ removeTargets()
 comment10.text=\n\ Removes\ all\ existing\ targets\ from\ the\ world.\n
