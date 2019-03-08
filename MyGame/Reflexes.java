@@ -58,7 +58,6 @@ public class Reflexes extends World
         {
             trackTime();
             lookToAddTarget();
-            lookForHits();
         }
     }
 
@@ -207,27 +206,16 @@ public class Reflexes extends World
     {
         return gameOn;
     }
-
+    
     /**
-     * Check to see whether actor has been tapped with mouse
+     * Play the achievement sound effect (when target is hit)
      */
-    private void lookForHits()
+    public void playAchievementSound()
     {
-        // Get an object that will provide info about current mouse status
-        MouseInfo mouse = Greenfoot.getMouseInfo();
-
-        // See if the mouse was clicked on an actor
-        Expander hitTarget = (Expander) mouse.getActor();
-        if (hitTarget != null)
-        {
-            // If current sound effect playing, stop it
-            achievement.stop();
-            
-            // Remove the actor that was clicked
-            removeObject(hitTarget);
-
-            // Play achievement sound effect again
-            achievement.play();
-        }
+        // Will stop playing sound effect if it's currently playing
+        achievement.stop();
+        
+        // Will start playing sound effect again
+        achievement.play();
     }
 }
