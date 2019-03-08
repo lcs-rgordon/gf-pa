@@ -14,9 +14,12 @@ public class Reflexes extends World
     private boolean firstTimeRun;
     private boolean gameOn;
     private int centreX;
+    private int bannerY;
+    private int toPlayY;
     private int timeLeft;
     private int frames;
     private int score;
+    private int highScore;
     private GreenfootSound achievement;
     private GreenfootSound mistake;
 
@@ -40,6 +43,12 @@ public class Reflexes extends World
 
         // Set centre point in the world
         centreX = getWidth() / 2;
+        
+        // Set vertical location of banner text
+        bannerY = 75;
+
+        // Set vertical location of play again message
+        toPlayY = 325;
 
         // Load the achievement sound effect
         achievement = new GreenfootSound("short_coin.wav");
@@ -71,10 +80,10 @@ public class Reflexes extends World
      */
     private void showGamePlayHint()
     {
-        showText("Welcome to Reflexes!", centreX, 75);
+        showText("Welcome to Reflexes!", centreX, bannerY);
         showText("Touch as many white targets as you can!", centreX, 175);
         showText("Don't touch the red targets.", centreX, 225);
-        showText("Press SPACE BAR to begin.", centreX, 325);
+        showText("Press SPACE BAR to begin.", centreX, toPlayY);
     }
 
     /**
@@ -85,7 +94,7 @@ public class Reflexes extends World
         showText("", centreX, 75);
         showText("", centreX, 175);
         showText("", centreX, 225);
-        showText("", centreX, 325);
+        showText("", centreX, toPlayY);
     }
 
     /**
@@ -93,7 +102,9 @@ public class Reflexes extends World
      */
     private void showResults()
     {
-        showText("Press SPACE BAR to play again.", centreX, 325);
+        showText("GAME OVER", centreX, 125);
+        showText("Highest score so far: " + highScore, centreX, 225);
+        showText("Press SPACE BAR to play again.", centreX, 275);
     }
 
     /**
@@ -101,7 +112,10 @@ public class Reflexes extends World
      */
     private void hideResults()
     {
-        showText("", centreX, 325);
+        showText("", centreX, 125);
+        showText("", centreX, 175);
+        showText("", centreX, 225);
+        showText("", centreX, 275);
     }
 
     /**
@@ -191,11 +205,24 @@ public class Reflexes extends World
             if (timeLeft == 0)
             {
                 gameOn = false;
+                checkForNewHighScore();
                 showResults();
             }
         }
     }
 
+    /**
+     * Determine whether there is a new high score
+     */
+    private void checkForNewHighScore()
+    {
+        if (score > highScore)
+        {
+            showText("NEW HIGH SCORE!", centreX, 175);
+            highScore = score;
+        }
+    }
+    
     /**
      * Regularly add a new target to the world
      */
