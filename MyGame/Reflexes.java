@@ -27,7 +27,7 @@ public class Reflexes extends World
         super(500, 400, 1); 
 
         // Make background black
-        this.drawBlackBackground();
+        drawBlackBackground();
 
         // Game starts showing hint about how to play
         shouldBeShowingHint = true;
@@ -36,7 +36,7 @@ public class Reflexes extends World
         gameOn = false;
         
         // Set centre point in the world
-        centreX = this.getWidth() / 2;
+        centreX = getWidth() / 2;
     }
 
     /**
@@ -60,10 +60,10 @@ public class Reflexes extends World
      */
     private void showHint()
     {
-        this.showText("Welcome to Reflexes!", centreX, 75);
-        this.showText("Click as many white circles as you can!", centreX, 175);
-        this.showText("Don't click the red circles.", centreX, 225);
-        this.showText("Press SPACE BAR to begin.", centreX, 325);
+        showText("Welcome to Reflexes!", centreX, 75);
+        showText("Click as many white circles as you can!", centreX, 175);
+        showText("Don't click the red circles.", centreX, 225);
+        showText("Press SPACE BAR to begin.", centreX, 325);
     }
     
     /**
@@ -71,10 +71,10 @@ public class Reflexes extends World
      */
     private void hideHint()
     {
-        this.showText("", centreX, 75);
-        this.showText("", centreX, 175);
-        this.showText("", centreX, 225);
-        this.showText("", centreX, 325);
+        showText("", centreX, 75);
+        showText("", centreX, 175);
+        showText("", centreX, 225);
+        showText("", centreX, 325);
     }
 
     /**
@@ -84,9 +84,9 @@ public class Reflexes extends World
     {
         if (Greenfoot.isKeyDown("space"))
         {
-            this.shouldBeShowingHint = false;
-            this.hideHint();
-            this.startGame();
+            shouldBeShowingHint = false;
+            hideHint();
+            startGame();
         }
     }
     
@@ -103,7 +103,7 @@ public class Reflexes extends World
         background.fill();
 
         // Set the new background
-        this.setBackground(background);
+        setBackground(background);
     }
     
     /**
@@ -122,7 +122,7 @@ public class Reflexes extends World
      */
     private void showTimeLeft()
     {
-        this.showText("Time left: " + timeLeft, 100, 50);
+        showText("Time left: " + timeLeft, 100, 50);
     }
     
 
