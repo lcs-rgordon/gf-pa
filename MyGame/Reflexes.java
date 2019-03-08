@@ -40,7 +40,7 @@ public class Reflexes extends World
         centreX = getWidth() / 2;
 
         // Load the achievement sound effect
-        achievement = new GreenfootSound("achievement.mp3");
+        achievement = new GreenfootSound("coin.wav");
     }
 
     /**
@@ -176,8 +176,8 @@ public class Reflexes extends World
      */
     private void lookToAddTarget()
     {
-        // Add a new target roughly every second
-        if (frames % 60 == 0)
+        // Add a new target roughly every half second
+        if (frames % 30 == 0)
         {
             addTarget();
         }
