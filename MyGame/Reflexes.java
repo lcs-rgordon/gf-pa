@@ -42,7 +42,7 @@ public class Reflexes extends World
 
         // Set centre point in the world
         centreX = getWidth() / 2;
-        
+
         // Set vertical location of banner text
         bannerY = 75;
 
@@ -185,7 +185,7 @@ public class Reflexes extends World
     {
         showText("Score: " + score, getWidth() - 100, 50);
     }
-    
+
     /**
      * Track frames and reduce time left in the game (each game is 10 seconds long)
      */
@@ -221,7 +221,7 @@ public class Reflexes extends World
             highScore = score;
         }
     }
-    
+
     /**
      * Regularly add a new target to the world
      */
@@ -291,7 +291,7 @@ public class Reflexes extends World
         // Will start playing sound effect again
         mistake.play();
     }
-    
+
     /**
      * Change the score when a target is hit
      * 

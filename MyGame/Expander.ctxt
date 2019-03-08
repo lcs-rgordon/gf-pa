@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Expander
-comment0.text=\n\ A\ circle\ that\ will\ expand\ in\ size\ until\ it's\ radius\ is\ 100\ pixels,\ then\ disappear.\n\ \n\ @author\ R.\ Gordon\n\ @version\ Friday,\ March\ 8,\ 2019\n
+comment0.text=\n\ A\ target\ that\ will\ expand\ in\ size\ until\ it's\ radius\ is\ 100\ pixels,\ then\ disappear.\n\ \n\ @author\ R.\ Gordon\n\ @version\ Friday,\ March\ 8,\ 2019\n
 comment1.params=color
 comment1.target=Expander(greenfoot.Color)
 comment1.text=\n\ Constructor\n
@@ -9,7 +9,7 @@ comment2.target=void\ act()
 comment2.text=\n\ Act\ -\ do\ whatever\ the\ Expander\ wants\ to\ do.\ This\ method\ is\ called\ whenever\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\n
 comment3.params=
 comment3.target=void\ expand()
-comment3.text=\n\ Make\ the\ circle\ expand\ in\ size\n
+comment3.text=\n\ Make\ the\ target\ expand\ in\ size\n
 comment4.params=
 comment4.target=void\ removeTarget()
 comment4.text=\n\ Remove\ the\ target\ from\ the\ world\n

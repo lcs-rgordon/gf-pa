@@ -34,11 +34,31 @@ public class Harmful extends Expander
             // When the target was not hit, continue expanding in size
             if (!hit)
             {
+                // Move toward the mouse pointer
+                moveToPlayer();
+
                 // Let the superclass do the expanding work
                 super.act();
             }
         }
-    }  
+    }
+
+    /**
+     * Move toward the mouse pointer to make game a bit more challenging
+     */
+    private void moveToPlayer()
+    {
+        // Get info about the mouse
+        MouseInfo mouse = Greenfoot.getMouseInfo();
+
+        // If the mouse pointer is off the edge of the world, the object
+        // will be null. So, we need to check before trying to use it.
+        if (mouse != null)
+        {
+            turnTowards(mouse.getX(), mouse.getY());
+            move(5);
+        }
+    }
 
     /**
      * Check to see whether target has been touched with mouse
@@ -52,7 +72,7 @@ public class Harmful extends Expander
             // Achievement made!
             Reflexes world = (Reflexes) getWorld();
             world.playMistakeSound();
-            
+
             // Decrease score
             world.changeScoreBy((100 - getRadius()) * (-2));
 
