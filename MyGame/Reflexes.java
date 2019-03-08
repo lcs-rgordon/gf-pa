@@ -72,8 +72,8 @@ public class Reflexes extends World
     private void showGamePlayHint()
     {
         showText("Welcome to Reflexes!", centreX, 75);
-        showText("Click as many white targets as you can!", centreX, 175);
-        showText("Don't click the red targets.", centreX, 225);
+        showText("Touch as many white targets as you can!", centreX, 175);
+        showText("Don't touch the red targets.", centreX, 225);
         showText("Press SPACE BAR to begin.", centreX, 325);
     }
 
